@@ -25,7 +25,6 @@ import { NewEventNotificationModule } from '@libs/common-ui';
     UserWelcomeModule,
     // GoogleMapsAppModule,
     NewEventNotificationModule,
-    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
