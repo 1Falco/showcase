@@ -26,6 +26,18 @@
       "@common-models": [
         "projects/libs/common-models/src/public-api.ts"
       ],
+      "@common-ui/bottom-notification": [
+        "dist/common-ui/bottom-notification/common-ui-bottom-notification",
+        "dist/common-ui/bottom-notification"
+      ],
+      "@common-ui/context-menu": [
+        "dist/common-ui/context-menu/common-ui-context-menu",
+        "dist/common-ui/context-menu"
+      ],
+      "@lib/bottom-notification": [
+        "dist/lib/bottom-notification/lib-bottom-notification",
+        "dist/lib/bottom-notification"
+      ],
       "@libs/common-ui": [
         "projects/libs/common-ui/src/public-api.ts"
       ],
@@ -34,6 +46,10 @@
       ],
       "@libs/user-domain": [
         "projects/libs/user-domain/src/public-api.ts"
+      ],
+      "bottom-notification": [
+        "dist/bottom-notification/bottom-notification",
+        "dist/bottom-notification"
       ]
     },
   },

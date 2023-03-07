@@ -6,21 +6,26 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 
 const routes: Routes = [
   {
-    path: "user",
+    path: '',
+    pathMatch: 'full',
+    component: AppComponent,
+  },
+  {
+    path: 'user',
     component: UserComponent,
   },
   {
-    path: "not-found",
-    component: WelcomeComponent,
+    path: 'not-found',
+    component: UserComponent,
   },
   {
-    path: "**",
-    redirectTo: "not-found",
+    path: '**',
+    redirectTo: 'not-found',
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

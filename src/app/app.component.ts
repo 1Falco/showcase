@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { EventAction, EventBusService, SignalrService } from '@libs/event-bus';
-import { environment } from '../environments/environment';
+import { EventBusService, SignalrService } from '@libs/event-bus';
 import { ProcessingEmitEvent } from 'projects/libs/event-bus/src/lib/enums/processing-emit-event';
 import { Subject } from 'rxjs';
-import { UserDomainApiService } from 'projects/libs/user-domain/src/public-api';
+import { environment } from '../environments/environment';
+import {
+  EventNotificationService,
+  NewEventNotificationComponent,
+  NewEventNotificationModule,
+} from '@libs/common-ui';
 
 @Component({
   selector: 'app-root',
@@ -21,15 +25,19 @@ export class AppComponent {
     private router: Router,
     private singalRService: SignalrService,
     private eventService: EventBusService,
-
+    private notificationService: EventNotificationService
   ) {
     // this.singalRService.startConnection('', '123');
   }
 
-
+  openNotification() {
+    this.notificationService.notify<NewEventNotificationComponent>(
+      NewEventNotificationComponent,
+      'Hi there'
+    );
+  }
 
   ngOnInit() {
-
     this.eventService.on(
       ProcessingEmitEvent.FeatureProcessing,
       (value: any) => {

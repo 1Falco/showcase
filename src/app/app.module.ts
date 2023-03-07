@@ -11,6 +11,7 @@ import { GoogleMapsAppModule } from './modules/google-maps.module';
 import {MatButtonModule} from '@angular/material/button'
 import { UserWelcomeModule } from './modules/user-welcome.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NewEventNotificationModule } from '@libs/common-ui';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     BrowserAnimationsModule,
     UserWelcomeModule,
-    GoogleMapsAppModule,
+    // GoogleMapsAppModule,
+    NewEventNotificationModule,
     MatButtonModule,
   ],
   providers: [],
