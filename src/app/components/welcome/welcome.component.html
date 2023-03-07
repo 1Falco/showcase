@@ -2,7 +2,7 @@
   <div class="headers">
     <div class="user-header">
       <h1>Welcome {{ user.name }}</h1>
-      <h3 *ngIf="welcoming | async">It's good to see you again!</h3>
+      <h3 *ngIf="!!(welcoming | async)">It's good to see you again!</h3>
     </div>
 
     <section class="main-section">
@@ -11,7 +11,7 @@
         src="../../../assets/users-icon-png-22.jpg"
         alt="user-icon"
       />
-      <button mat-icon-button color="primary" aria-label="User Settings">
+      <button (click)="navigateToSettings()" mat-icon-button color="primary" aria-label="User Settings">
         <mat-icon>settings</mat-icon>
       </button>
     </section>

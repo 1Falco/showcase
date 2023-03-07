@@ -44,6 +44,10 @@ export class WelcomeComponent implements OnInit {
     }, 3000);
   }
 
+  navigateToSettings() {
+    this.router.navigate(['user']);
+  }
+
   navigate() {
     this.router.navigateByUrl('http://localhost:4200/user');
   }
