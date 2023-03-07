@@ -1,4 +1,4 @@
-import { environment } from "../src/environment/environment";
+import { environment } from "src/environments/environment";
 
 declare global {
   interface Console {

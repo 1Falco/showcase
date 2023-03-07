@@ -4,6 +4,7 @@ import { EventAction, EventBusService, SignalrService } from '@libs/event-bus';
 import { environment } from '../environments/environment';
 import { ProcessingEmitEvent } from 'projects/libs/event-bus/src/lib/enums/processing-emit-event';
 import { Subject } from 'rxjs';
+import { UserDomainApiService } from 'projects/libs/user-domain/src/public-api';
 
 @Component({
   selector: 'app-root',
@@ -19,12 +20,16 @@ export class AppComponent {
   constructor(
     private router: Router,
     private singalRService: SignalrService,
-    private eventService: EventBusService
+    private eventService: EventBusService,
+
   ) {
-    this.singalRService.startConnection('', '123');
+    // this.singalRService.startConnection('', '123');
   }
 
+
+
   ngOnInit() {
+
     this.eventService.on(
       ProcessingEmitEvent.FeatureProcessing,
       (value: any) => {

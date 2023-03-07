@@ -31,6 +31,9 @@
       ],
       "@libs/event-bus": [
         "projects/libs/event-bus/src/public-api.ts"
+      ],
+      "@libs/user-domain": [
+        "projects/libs/user-domain/src/public-api.ts"
       ]
     },
   },

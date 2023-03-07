@@ -1,12 +1,19 @@
-<section class="main-section">
-  <img
-    class="user-icon-animated"
-    src="../../../assets/users-icon-png-22.jpg"
-    alt="user-icon"
-  />
-</section>
+<ng-container *ngIf="loadUser() | async as user">
+  <div class="headers">
+    <div class="user-header">
+      <h1>Welcome {{ user.name }}</h1>
+      <h3 *ngIf="welcoming | async">It's good to see you again</h3>
+    </div>
 
-<section class="menu-actions">
-  <!-- <a routerLink="/user" routerLinkActive="active" ariaCurrentWhenActive="page">First Component</a> -->
-  <button (click)="navigate()">Settings</button>
-</section>
+    <section class="main-section">
+      <img
+        class="user-icon-animated"
+        src="../../../assets/users-icon-png-22.jpg"
+        alt="user-icon"
+      />
+      <button mat-icon-button color="primary" aria-label="User Settings">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </section>
+  </div>
+</ng-container>
