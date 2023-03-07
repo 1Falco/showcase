@@ -21,7 +21,18 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@common-models": [
+        "projects/libs/common-models/src/public-api.ts"
+      ],
+      "@libs/common-ui": [
+        "projects/libs/common-ui/src/public-api.ts"
+      ],
+      "@libs/event-bus": [
+        "projects/libs/event-bus/src/public-api.ts"
+      ]
+    },
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
