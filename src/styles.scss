@@ -3,3 +3,34 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* snack-bar styling */
+.snack-bar {
+    background: rgb(15, 112, 183);
+  }
+  
+  .snack-bar-success {
+    background: #43c165;
+  }
+  .snack-bar-warning {
+    background: #e2961d;
+  }
+  .snack-bar-error {
+    background: #c14343;
+  }
+  
+  .snack-bar .mat-simple-snackbar-action,
+  .snack-bar-success .mat-simple-snackbar-action,
+  .snack-bar-warning .mat-simple-snackbar-action,
+  .snack-bar-error .mat-simple-snackbar-action {
+    color: white;
+  }
+  
+  .snack-bar .mat-simple-snackbar,
+  .snack-bar-success .mat-simple-snackbar,
+  .snack-bar-warning .mat-simple-snackbar,
+  .snack-bar-error .mat-simple-snackbar {
+    color: white;
+    text-align: center;
+    text-justify: newspaper;
+  }
