@@ -1,19 +1,17 @@
-import { Inject, Injectable, Type } from '@angular/core';
+import { Injectable, Type } from '@angular/core';
 import {
-  MAT_SNACK_BAR_DATA,
   MatSnackBar,
-  MatSnackBarConfig,
+  MatSnackBarConfig
 } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
-import { EventNotificationComponent } from './event-notification.component';
 import { EventNotificationType } from './types/event-notification.type';
 
 @Injectable({ providedIn: 'root' })
 export class EventNotificationService {
   private snackbarRef: any;
 
-  constructor(private snackBar: MatSnackBar, private router: Router) {}
+  constructor(private snackBar: MatSnackBar, private router: Router) { }
 
   public notify<T = EventNotificationType>(
     type: Type<T>,
@@ -21,14 +19,12 @@ export class EventNotificationService {
     notificationInfo?: NotificationInfoType,
     link?: string
   ) {
-    console.log('here', type)
     const def = this.defaultValues();
     this.snackbarRef = this.snackBar.openFromComponent(type, {
-      announcementMessage: message,
       panelClass: this.getSnackbarPanelClass(
         notificationInfo?.type || def.type
       ),
-      // data: this.data,
+      data: message,
       duration: notificationInfo?.durationMS || def.durationMS,
       verticalPosition: 'bottom',
     });
@@ -36,29 +32,12 @@ export class EventNotificationService {
       notificationInfo?.actionType || def.actionType,
       link
     );
-    // this.snackbarRef = this.snackBar.open(
-    //   message,
-    //   notificationInfo?.actionType || def.actionType,
-    //   {
-    //     panelClass: this.getSnackbarPanelClass(
-    //       notificationInfo?.type || def.type
-    //     ),
-    //     duration: notificationInfo?.durationMS || def.durationMS,
-    //     verticalPosition: 'bottom',
-    //   }
-    // );
-    // this.setBehaviorByActionType(
-    //   notificationInfo?.actionType || def.actionType,
-    //   link
-    // );
   }
 
-  public helpMeNotification(notificationInfo: NotificationInfoType) {
-    this.snackBar.openFromComponent(
-      EventNotificationComponent,
-      this.createCustomConfig(notificationInfo)
-    );
+  public dismissNotification() {
+    if (!!this.snackbarRef) this.snackbarRef.dismiss();
   }
+
 
   private createCustomConfig(notificationInfo: NotificationInfoType) {
     const def = this.defaultValues();
@@ -83,7 +62,7 @@ export class EventNotificationService {
 
   private setBehaviorByActionType(
     actionType: ActionType | undefined,
-    link: string | undefined
+    link?: string | undefined
   ) {
     this.snackbarRef
       .onAction()
@@ -117,8 +96,6 @@ export class EventNotificationService {
   private refresh() {
     window.location.reload();
   }
-
-  private logOut() {}
 
   private getSnackbarPanelClass(type: NotificationType | undefined) {
     switch (type) {

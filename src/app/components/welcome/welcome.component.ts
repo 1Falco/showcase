@@ -1,11 +1,13 @@
+import { transition, trigger, useAnimation } from '@angular/animations';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import {
   ChangeDetectionStrategy,
   Component,
   Input,
-  OnInit,
+  OnInit
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { enterTopAnimation, leaveTopAnimation } from '@libs/common-ui';
 import { UserDomainApiService } from '@libs/user-domain';
 import { BehaviorSubject } from 'rxjs';
 
@@ -14,6 +16,16 @@ import { BehaviorSubject } from 'rxjs';
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('fade', [
+      transition(':enter', [
+        useAnimation(enterTopAnimation)
+      ]),
+      transition(':leave', [
+        useAnimation(leaveTopAnimation)
+      ]),
+    ]),
+  ]
 })
 export class WelcomeComponent implements OnInit {
   @Input() public userName = '';
